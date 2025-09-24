@@ -40,6 +40,10 @@
     padding-bottom: 96px;
     padding-top:364px;
     margin:auto;
+    opacity: 0;
+      transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
 }
 
 #welcome, #descriptionContent {
@@ -116,6 +120,9 @@
 
   <script>
 
+    setTimeout(() => {
+      document.querySelector('#signInContent').style.opacity = 100;
+    }, 1000);
 
     document.querySelector('#newPassword').addEventListener('keyup', (e) => {
       const value = e?.currentTarget?.value || '';
