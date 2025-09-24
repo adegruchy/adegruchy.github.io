@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Katapult Pro Maps</title>
+
+  <style>
+    /* Make the page fill the viewport and remove default margins */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* Body uses a full-bleed background image */
+    body {
+      /* Replace the URL below with your image path or URL */
+      background-image: url("background.jpg");
+      background-position: center center; /* center the image */
+      background-repeat: no-repeat;        /* don't tile */
+      background-size: cover;             /* scale to cover entire viewport */
+      background-attachment: fixed;       /* optional: keep image fixed while scrolling */
+      font-family: 'Roboto';
+      color: #fff;
+    }
+
+    /* Small responsive tweak so content is readable on narrow screens */
+    @media (max-width: 420px) {
+      .card { padding: 1rem; border-radius: 8px; }
+    }
+
+    #welcome {
+        font-size: 20pt;
+        font-weight: lighter;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    #signInContent {
+    padding-bottom: 96px;
+    padding-top:364px;
+    margin:auto;
+}
+
+#welcome, #descriptionContent {
+    padding: 16px;
+    color: white;
+    animation-name: fade-up;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    font-size: 27px;
+    font-weight: lighter;
+}
+  </style>
+
+  <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+  <script src="webcomponentsjs/webcomponents-loader.js"></script>
+  
+  <link rel="import" href="paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="iron-icons/iron-icons.html">
+  <link rel="import" href="paper-button/paper-button.html">
+  <link rel="import" href="paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="paper-input/paper-input.html">
+  <link rel="import" href="paper-progress/paper-progress.html">
+</head>
+<body>
+
+  <div id="signInContent">
+    <div id="welcome" style="display:flex;justify-content: center;">
+      Welcome To
+    </div>
+    <div id="titleContent" style="display:flex;justify-content: center;">
+      <div id="descriptionContent" style="font-size: 24px;display:flex;justify-content: center;flex-direction: column; width:539px;">
+        <span style="margin-bottom:20px;font-size: 37px;font-weight: 400;">Katapult Pro Maps</span>
+        <br />
+        <br />
+        <span></span>Katapult Pro Maps allows you to design and share survey jobs with Maps and Photos from any computer.</span>
+        <br />
+        <br />
+        <span>Gather data for a permanent record of real-world conditions in minutes!</span>
+        <br />
+        <span>Need some help? View our <a style="color: white; font-weight: normal; text-decoration: none;" href="https://katapultpro.com/help/">Docs</a></span>
+      </div>
+      <div style="background:white; width: 336px; border-radius: 18px;">
+        <paper-icon-button onclick="toggleVisible('newPassword')" style="z-index:100; color: rgb(51 51 51 / 1);
+        position: relative;
+    top: 70px;
+    left: 281px;"
+     icon="visibility"></paper-icon-button>
+        <paper-icon-button onclick="toggleVisible('confirmPassword')" style="z-index:100; color: rgb(51 51 51 / 1);
+        position: relative;
+    top: 147px;
+    left: 237px;"
+     icon="visibility"></paper-icon-button>
+        <paper-input type="password" id="newPassword" style="margin:14px 14px 4px 14px; --paper-input-container-focus-color: #003e51;" label="New Password"></paper-input>
+        <paper-progress value="5" style="--paper-progress-active-color: #f44336; width:92%; margin-left:13px; margin-right: 13px;" id="strength"></paper-progress>
+        <paper-input type="password" id="confirmPassword" style="margin:14px; --paper-input-container-focus-color: #003e51;" label="Confirm New Password"></paper-input>
+        <div style="text-align: center;">
+          <paper-checkbox style="--paper-checkbox-checked-color: #003e51; --paper-checkbox-unchecked-ink-color: #003e51; --paper-checkbox-checked-ink-color: #003e51; margin:15px;">
+            I agree to the terms of the
+            <a style="color:#007299;" target="_blank" href="https://katapultpro.com/eula-page/">EULA</a>
+          </paper-checkbox>
+        </div>
+        <div style="text-align: center;">
+          <br />
+          <paper-button onclick="changePassword()" style="    color: black;
+    background: #007299;
+    color: white;
+    border-radius: 16px;
+    text-transform: capitalize;
+    width: 92%;">Change Password</paper-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+
+    document.querySelector('#newPassword').addEventListener('keyup', (e) => {
+      const value = e?.currentTarget?.value || '';
+      setProgress((value.length || 1) / 20 * 100)
+    })
+
+    function toggleVisible(id) {
+      document.getElementById(id).type = document.getElementById(id).type == 'text' ? 'password' : 'text';
+    }
+    function setProgress(num) {
+      const strength = document.querySelector('#strength');
+      strength.value = num;
+      const color = num < 20 ? '#f44336' : num < 50 ? '#ff9800' : '#4caf50';
+      strength.shadowRoot.querySelector('#primaryProgress').style.background = color;
+    }
+    function changePassword() {
+      window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    }
+  </script>
+
+</body>
+</html>
