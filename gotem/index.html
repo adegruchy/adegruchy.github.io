@@ -86,16 +86,23 @@
         <span>Need some help? View our <a style="color: white; font-weight: normal; text-decoration: none;" href="https://katapultpro.com/help/">Docs</a></span>
       </div>
       <div style="background:white; width: 336px; border-radius: 18px;">
-        <paper-icon-button onclick="toggleVisible('newPassword')" style="z-index:100; color: rgb(51 51 51 / 1);
+        <paper-icon-button onclick="toggleVisible('currentPassword')" style="z-index:100; color: rgb(51 51 51 / 1);
         position: relative;
     top: 70px;
     left: 281px;"
      icon="visibility"></paper-icon-button>
-        <paper-icon-button onclick="toggleVisible('confirmPassword')" style="z-index:100; color: rgb(51 51 51 / 1);
+        <paper-icon-button onclick="toggleVisible('newPassword')" style="z-index:100; color: rgb(51 51 51 / 1);
         position: relative;
     top: 147px;
     left: 237px;"
      icon="visibility"></paper-icon-button>
+        <paper-icon-button onclick="toggleVisible('confirmPassword')" style="    z-index: 100;
+    color: rgb(51 51 51 / 1);
+    position: relative;
+    top: 229px;
+    left: 193px;"
+     icon="visibility"></paper-icon-button>
+        <paper-input type="password" id="currentPassword" style="margin:14px 14px 4px 14px; --paper-input-container-focus-color: #003e51;" label="Current Password"></paper-input>
         <paper-input type="password" id="newPassword" style="margin:14px 14px 4px 14px; --paper-input-container-focus-color: #003e51;" label="New Password"></paper-input>
         <paper-progress value="5" style="--paper-progress-active-color: #f44336; width:92%; margin-left:13px; margin-right: 13px;" id="strength"></paper-progress>
         <paper-input type="password" id="confirmPassword" style="margin:14px; --paper-input-container-focus-color: #003e51;" label="Confirm New Password"></paper-input>
@@ -113,6 +120,7 @@
     border-radius: 16px;
     text-transform: capitalize;
     width: 92%;">Change Password</paper-button>
+    <br /><br /><br />
         </div>
       </div>
     </div>
